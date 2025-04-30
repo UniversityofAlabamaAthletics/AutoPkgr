@@ -7,7 +7,7 @@
 	<key>Description</key>
 	<string>Downloads the latest version of Synergy Editor and uploads the package to Jamf.</string>
 	<key>Identifier</key>
-	<string>com.github.jschwartz.jamf.SynergyEditor</string>
+	<string>com.github.jschwartz.jamf.SynergyEditor64</string>
 	<key>Input</key>
 	<dict>
 		<key>CATEGORY</key>
@@ -18,7 +18,7 @@
 	<key>MinimumVersion</key>
 	<string>2.3</string>
 	<key>ParentRecipe</key>
-	<string>com.github.jschwartz.pkg.SynergyEditor</string>
+	<string>com.github.jschwartz.pkg.SynergyEditor64</string>
 	<key>Process</key>
 	<array>
 		<dict>
