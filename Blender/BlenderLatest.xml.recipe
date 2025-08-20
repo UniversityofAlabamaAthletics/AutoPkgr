@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Comment</key>
-    <string>Recipe to download and package the latest Blender version for macOS (ARM64)</string>
+    <string>Recipe to download and package the latest Blender version for macOS (ARM64) from official Blender site</string>
     <key>Identifier</key>
     <string>com.github.autopkg.blender.latest</string>
     <key>Input</key>
@@ -11,7 +11,9 @@
         <key>NAME</key>
         <string>Blender</string>
         <key>BASE_URL</key>
-        <string>https://mirrors.cicku.me/blender/release/</string>
+        <string>https://download.blender.org/release/</string>
+        <key>VERSION_PAGE</key>
+        <string>https://www.blender.org/download/</string>
         <key>PKG_ID</key>
         <string>org.blender.Blender</string>
     </dict>
@@ -25,13 +27,16 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%BASE_URL%</string>
+                <string>%VERSION_PAGE%</string>
                 <key>re_pattern</key>
-                <string>Blender(\d+\.\d+)</string>
+                <string>Blender (\d+\.\d+\.\d+)</string>
                 <key>result_output_var_name</key>
                 <string>version</string>
                 <key>request_headers</key>
-                <dict/>
+                <dict>
+                    <key>User-Agent</key>
+                    <string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36</string>
+                </dict>
             </dict>
         </dict>
         <dict>
@@ -43,6 +48,13 @@
                 <string>%BASE_URL%Blender%version%/blender-%version%-macos-arm64.dmg</string>
                 <key>filename</key>
                 <string>%NAME%-%version%.dmg</string>
+                <key>CURL_OPTIONS</key>
+                <array>
+                    <string>--fail</string>
+                    <string>--location</string>
+                    <string>--silent</string>
+                    <string>--show-error</string>
+                </array>
             </dict>
         </dict>
         <dict>
